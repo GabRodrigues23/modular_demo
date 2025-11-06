@@ -7,7 +7,11 @@ class FreePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Free Page'),
+        centerTitle: true,
+        title: Text(
+          'Free Page',
+          style: TextStyle(fontSize: 42),
+        ),
         backgroundColor: Colors.red,
         foregroundColor: Colors.white,
       ),

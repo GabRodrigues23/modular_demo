@@ -17,47 +17,63 @@ class _LoginPageState extends State<LoginPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Login'),
-        backgroundColor: Colors.red,
+        centerTitle: true,
+        title: Text(
+          style: TextStyle(fontSize: 42),
+          'Login',
+        ),
+        backgroundColor: const Color(0xFF2C5163),
         foregroundColor: Colors.white,
       ),
-      backgroundColor: Colors.red,
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.all(32.0),
+      backgroundColor: Colors.blueAccent,
+      body: Padding(
+        padding: EdgeInsetsGeometry.only(top: 100),
+        child: SingleChildScrollView(
           child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Icon(
                 Icons.paid,
-                size: 100,
+                size: 150,
                 color: Colors.white,
-                shadows: [Shadow(blurRadius: 5)],
+                shadows: [Shadow(blurRadius: 4)],
               ),
               const SizedBox(height: 20),
-              TextField(
-                controller: textEditingController,
-                decoration: InputDecoration(
-                    filled: true,
-                    fillColor: Colors.white,
-                    border: OutlineInputBorder(),
-                    hintText: 'Usuário'),
+              SizedBox(
+                width: 300,
+                child: TextField(
+                  controller: textEditingController,
+                  decoration: InputDecoration(
+                      filled: true,
+                      fillColor: Colors.white,
+                      border: OutlineInputBorder(),
+                      hintText: 'Usuário'),
+                ),
               ),
-              const SizedBox(height: 15),
-              ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.white,
-                      foregroundColor: Colors.black),
-                  onPressed: () {
-                    controller.login(textEditingController.text);
-                  },
-                  child: Text('Login')),
-              const SizedBox(height: 15),
-              ElevatedButton(
-                style: ElevatedButton.styleFrom(backgroundColor: Colors.white),
-                onPressed: () {
-                  Modular.to.pushNamed('/free/');
-                },
-                child: Text('Free'),
+              const SizedBox(height: 20),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                          backgroundColor: Colors.white,
+                          foregroundColor: Colors.black,
+                          fixedSize: Size(140, 50)),
+                      onPressed: () {
+                        controller.login(textEditingController.text);
+                      },
+                      child: Text('Login')),
+                  const SizedBox(width: 15),
+                  ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.white,
+                        fixedSize: Size(150, 50)),
+                    onPressed: () {
+                      Modular.to.pushNamed('/free/');
+                    },
+                    child: Text('Free'),
+                  ),
+                ],
               ),
             ],
           ),

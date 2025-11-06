@@ -13,25 +13,38 @@ class CounterPage extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text('Counter'),
-        backgroundColor: Colors.red,
+        centerTitle: true,
+        title: Text(
+          'Counter',
+          style: TextStyle(fontSize: 42),
+        ),
+        backgroundColor: const Color(0xFF2C5163),
         foregroundColor: Colors.white,
       ),
-      backgroundColor: Colors.red,
+      backgroundColor: Colors.blueAccent,
       body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            ValueListenableBuilder<int>(
-              valueListenable: controller.counter,
-              builder: (_, value, __) => Text('Count: $value'),
-            ),
-            const SizedBox(height: 20),
-            ElevatedButton(
-                style: ElevatedButton.styleFrom(backgroundColor: Colors.white),
-                onPressed: controller.increment,
-                child: Text('Adicionar Moeda')),
-          ],
+        child: Padding(
+          padding: EdgeInsetsGeometry.only(top: 150),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              ValueListenableBuilder<int>(
+                valueListenable: controller.counter,
+                builder: (_, value, __) => Text(
+                  'Count: $value',
+                  style: TextStyle(fontSize: 40),
+                ),
+              ),
+              const SizedBox(height: 20),
+              ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.white,
+                      foregroundColor: Colors.black,
+                      fixedSize: Size(200, 50)),
+                  onPressed: controller.increment,
+                  child: Text('Adicionar Moeda')),
+            ],
+          ),
         ),
       ),
     );

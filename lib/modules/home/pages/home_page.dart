@@ -10,28 +10,40 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Home'),
-        backgroundColor: Colors.red,
+        centerTitle: true,
+        title: Text(
+          'Home',
+          style: TextStyle(fontSize: 42),
+        ),
+        backgroundColor: const Color(0xFF2C5163),
         foregroundColor: Colors.white,
       ),
-      backgroundColor: Colors.red,
+      backgroundColor: Colors.blueAccent,
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            ElevatedButton(
-              style: ElevatedButton.styleFrom(backgroundColor: Colors.white),
-              onPressed: () {
-                Modular.to.pushNamed('/counter/${controller.user}');
-              },
-              child: Text('Go to Counter'),
-            ),
-            ElevatedButton(
-              style: ElevatedButton.styleFrom(backgroundColor: Colors.white),
-              onPressed: () {
-                controller.logout();
-              },
-              child: Text('Logout'),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.white, fixedSize: Size(140, 50)),
+                  onPressed: () {
+                    Modular.to.pushNamed('/counter/${controller.user}');
+                  },
+                  child: Text('Go to Counter'),
+                ),
+                SizedBox(width: 20),
+                ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.white, fixedSize: Size(140, 50)),
+                  onPressed: () {
+                    controller.logout();
+                  },
+                  child: Text('Logout'),
+                ),
+              ],
             ),
           ],
         ),
